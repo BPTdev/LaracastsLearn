@@ -21,18 +21,18 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('ex/hardroutes/posts', function () {
-    return view('posts');
+    return view('posts', [
+        'posts' => Post::all()
+    ]);
 });
 
 Route::get('ex/hardroutes/posts/{post}', function ($slug) {
-    //Find a post by its slug and pass it to the view called "post"
 
     //post = class [Post] using methode[find] give the parameters[$slug]
     //return the view (name of the view[post]) with the array that contains ['post' => $post]
 
-    $post = Post::find($slug);
     return view('post', [
-        'post' => $post
+        'post' => Post::find($slug)
     ]);
 
 
