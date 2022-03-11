@@ -21,6 +21,7 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('ex/hardroutes/posts', function () {
+
     return view('posts', [
         'posts' => Post::all()
     ]);
@@ -32,8 +33,8 @@ Route::get('ex/hardroutes/posts/{post}', function ($slug) {
     //return the view (name of the view[post]) with the array that contains ['post' => $post]
 
     return view('post', [
-        'post' => Post::find($slug)
+        'post' => Post::findOrFail($slug)
     ]);
 
 
-})->where('post', '[A-z0-9]+');
+});

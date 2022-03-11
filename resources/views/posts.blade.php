@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My post</title>
-    <link rel="stylesheet" href="/app.css">
-</head>
-<body>
-<?php foreach ($posts as $post) : ?>
-<article>
-    <?= $post ?>
-</article>
-<?php endforeach; ?>
-</body>
-</html>
+@extends('layout')
+
+@section('content')
+    @foreach ($posts as $post)
+        <article>
+            <a href="/ex/hardroutes/posts/{{$post->slug}}">
+                {{$post->title}}
+            </a>
+            <div>{{ $post->excerpt }}</div>
+        </article>
+    @endforeach
+@endsection
