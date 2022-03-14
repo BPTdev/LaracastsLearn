@@ -1,8 +1,9 @@
 body {
-    font-family: "Bubblegum Sans";
+    font-family: "Arial";
 }
 article {
     max-width: 600px;
     margin: auto;
     border-bottom: solid #4a5568;
+    overflow: hidden;
 }

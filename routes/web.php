@@ -18,7 +18,9 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 Route::get('/', function () {
-    return view('home');
+    return view('posts', [
+        'posts' => Post::all()
+    ]);
 });
 Route::get('ex/hardroutes/posts', function () {
 
@@ -27,13 +29,10 @@ Route::get('ex/hardroutes/posts', function () {
     ]);
 });
 
-Route::get('ex/hardroutes/posts/{post}', function ($slug) {
-
-    //post = class [Post] using methode[find] give the parameters[$slug]
-    //return the view (name of the view[post]) with the array that contains ['post' => $post]
+Route::get('ex/hardroutes/posts/{post:slug}', function (Post $post) {
 
     return view('post', [
-        'post' => Post::findOrFail($slug)
+        'post' => $post
     ]);
 
 
