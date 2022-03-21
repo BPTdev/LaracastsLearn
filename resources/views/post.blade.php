@@ -4,8 +4,12 @@
 
     <article>
         <h1><?= $post->title; ?></h1>
+
+        By <a href="#">{{$post->users->name}}</a> in <a
+            href="categories/{{$post->category->slug}}">{{$post->category->name}}</a>
+
         <div><?= $post->body; ?></div>
 
-        <a href="/ex/hardroutes/posts">Go Back</a>
+        <a href="/posts">Go Back</a>
     </article>
 @endsection
